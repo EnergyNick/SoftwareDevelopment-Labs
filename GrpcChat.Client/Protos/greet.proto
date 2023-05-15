@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcChat.Client";
+
+package greet;
+
+service Greeter {
+  rpc SubscribeMessagesBiDir (stream MessageRequest) returns (stream MessageRequest);
+}
+
+message EnterRequest {
+  string userName = 1;
+}
+
+message EnterReply {
+  string userName = 1;
+}
+
+message MessageRequest {
+  string user = 1;
+  string message = 2;
+}
+
